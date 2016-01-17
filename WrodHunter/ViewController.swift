@@ -13,6 +13,33 @@ enum Entry {
     case SomeLetter(String)
 }
 
+extension UIFont {
+    func fontThetFitsSize( size: CGSize ) -> UIFont {
+        var mysize = "Њ".sizeWithAttributes([NSFontAttributeName : self])
+        var font : UIFont = self
+        var fontSize = self.pointSize
+        if( mysize.width > size.width ) {
+            while( mysize.width > size.width * 0.85 ) {
+                fontSize = fontSize - 1.0
+                font = self.fontWithSize(fontSize)
+                mysize = "Њ".sizeWithAttributes([NSFontAttributeName : font])
+                fontSize = font.pointSize
+            }
+            return font
+        } else if ( mysize.width < size.width ) {
+            while( mysize.width < size.width * 0.85 ) {
+                fontSize = fontSize + 1.0
+                font = self.fontWithSize(fontSize)
+                mysize = "Њ".sizeWithAttributes([NSFontAttributeName : font])
+                fontSize = font.pointSize
+            }
+            return font
+        }
+        
+        return self
+    }
+}
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet var wordsDelegate: WordsDataSourceAndDelegate!
 
@@ -94,6 +121,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell : LetterCell = collectionView.dequeueReusableCellWithReuseIdentifier("lettercell", forIndexPath: indexPath) as! LetterCell
+        
+        cell.letterLabel.font = cell.letterLabel.font.fontThetFitsSize(cell.frame.size )
         
         let entry = self.matrix![indexPath.section][indexPath.row]
         
