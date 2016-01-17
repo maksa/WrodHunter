@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WrodHunter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5wQ-Xu-jU9" userLabel="LettersView">
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="zgA-Mb-h4k">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="lettercell" id="H9V-V1-HD5" customClass="LetterCell" customModule="WrodHunter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an3-HG-KwR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="46"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="an3-HG-KwR" firstAttribute="width" secondItem="H9V-V1-HD5" secondAttribute="width" id="4wC-gK-rza"/>
+                                            <constraint firstItem="an3-HG-KwR" firstAttribute="centerX" secondItem="H9V-V1-HD5" secondAttribute="centerX" id="dC9-0n-nBJ"/>
+                                            <constraint firstItem="an3-HG-KwR" firstAttribute="centerY" secondItem="H9V-V1-HD5" secondAttribute="centerY" id="wM8-Ui-7NT"/>
+                                            <constraint firstItem="an3-HG-KwR" firstAttribute="height" secondItem="H9V-V1-HD5" secondAttribute="height" id="zMw-dj-s0T"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="letterLabel" destination="an3-HG-KwR" id="Atq-Tg-eBQ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="crG-bc-jej"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CKV-OJ-lH0"/>
+                                </connections>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j90-QW-qLA" userLabel="WordsView">
+                                <rect key="frame" x="0.0" y="62" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="F00-Vx-axW"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Scc-Xv-5kh">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="wordcell" id="oK1-Di-GF1" customClass="WordCell" customModule="WrodHunter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-3" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="NrG-fz-ooc">
+                                                    <rect key="frame" x="4" y="14" width="42" height="21"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="wordLabel" destination="NrG-fz-ooc" id="VWo-tg-hwS"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="HQw-ae-Z0m" id="jmZ-rf-pw6"/>
+                                    <outlet property="delegate" destination="HQw-ae-Z0m" id="Fb2-0u-qH2"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWD-41-Oi6">
+                                <rect key="frame" x="539" y="24" width="41" height="30"/>
+                                <state key="normal" title="Опет!"/>
+                                <connections>
+                                    <action selector="onOpet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l7L-Hq-2g5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="j90-QW-qLA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6us-r0-c8Y"/>
+                            <constraint firstItem="j90-QW-qLA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="AJi-4i-8gm"/>
+                            <constraint firstItem="5wQ-Xu-jU9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HMe-OK-F8J"/>
+                            <constraint firstItem="5wQ-Xu-jU9" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="K20-Yf-o5v"/>
+                            <constraint firstItem="5wQ-Xu-jU9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="88" id="NgL-us-tqC"/>
+                            <constraint firstItem="5wQ-Xu-jU9" firstAttribute="top" secondItem="j90-QW-qLA" secondAttribute="bottom" constant="2" id="Vb9-Hf-hzi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5wQ-Xu-jU9" secondAttribute="bottom" id="YxU-Qx-dVV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zWD-41-Oi6" secondAttribute="trailing" id="gvg-fb-Yji"/>
+                            <constraint firstItem="zWD-41-Oi6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="4" id="hcf-Gs-A8T"/>
+                            <constraint firstAttribute="trailing" secondItem="j90-QW-qLA" secondAttribute="trailing" id="i4I-WG-P9r"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="AJi-4i-8gm"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="lettersCollectionView" destination="5wQ-Xu-jU9" id="PbC-wC-qlB"/>
+                        <outlet property="wordsCollectionView" destination="j90-QW-qLA" id="jV8-lf-73m"/>
+                        <outlet property="wordsDelegate" destination="HQw-ae-Z0m" id="jcA-hE-kEb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="37z-ek-JVl">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgW-ze-KcO">
+                            <rect key="frame" x="99" y="53" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <customObject id="HQw-ae-Z0m" customClass="WordsDataSourceAndDelegate" customModule="WrodHunter" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="278" y="177"/>
+        </scene>
+    </scenes>
+</document>
