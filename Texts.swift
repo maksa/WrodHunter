@@ -25,14 +25,18 @@ class Texts: NSObject {
         words = cleanedUpString.characters.split{$0 == " "}.map(String.init)
     }
     
-    func randomWords( howMany: Int ) -> [ String ] {
+    func randomWords( howMany: Int, maximumlength: Int ) -> [ String ] {
         var set = Set<String>()
         while( set.count < howMany ) {
-            let randomIndex = Int.random(0...words.count-1)
-            let randomWord = words[randomIndex]
+            var randomWord = ""
+            repeat {
+                let randomIndex = Int.random(0...words.count-1)
+                randomWord = words[randomIndex]
+            } while (randomWord.characters.count > maximumlength )
             if ( !set.contains(randomWord) && randomWord.characters.count > 3 ) {
-                set.insert(randomWord)
+                    set.insert(randomWord)
             }
+
         }
         return Array(set)
     }

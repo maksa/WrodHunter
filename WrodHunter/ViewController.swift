@@ -70,9 +70,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func setupGame() {
-        let x = 15
-        let cellSize = self.lettersCollectionView.frame.size.width/15
-        let y : Int = Int(floor(self.lettersCollectionView.frame.size.height)/cellSize)
+        var x = 15
+        let cellSize = max(38.0, self.lettersCollectionView.frame.size.width/CGFloat(x))
+        let y : Int = Int(floor(self.lettersCollectionView.frame.size.height)/cellSize) - 1
+        x = Int(self.lettersCollectionView.frame.size.width / cellSize)
         matrixSize = ( x, y )
         
         // columns
@@ -88,7 +89,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         let textovi = Texts()
         
-        let words = textovi.randomWords(6)
+        let words = textovi.randomWords( 6, maximumlength: min(matrixSize.columns, matrixSize.rows ))
         wordSet.wordEntries.removeAll()
         wordSet.generatePositionsForWords( words, matrix: matrixSize )
         
@@ -133,8 +134,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if ( occupiedentry.status == .Solved ) {
                 cell.letterLabel.textColor = UIColor.blueColor()
             } else {
-//                cell.letterLabel.textColor = UIColor.orangeColor()
-                cell.letterLabel.textColor = UIColor.blackColor()
+                cell.letterLabel.textColor = UIColor.orangeColor()
+//                cell.letterLabel.textColor = UIColor.blackColor()
             }
             
             case .SomeLetter( let slovo ):

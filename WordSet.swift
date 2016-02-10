@@ -66,7 +66,6 @@ class WordSet: NSObject {
             let s1 = Set<NSIndexPath>( entry.positions )
             let s2 = Set<NSIndexPath>( indexPaths )
             if ( s1.intersect(s2).count > 0 ) {
-                NSLog("seku se \(s1) i \(s2)")
                 return true
             }
         }
